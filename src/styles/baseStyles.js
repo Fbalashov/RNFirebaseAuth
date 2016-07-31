@@ -10,7 +10,9 @@ module.exports = StyleSheet.create({
   },
   body: {
     flex: 9,
-    alignItems: 'center',
+    flexDirection:'row',
+    alignItems:'center',
+    justifyContent:'center',
     backgroundColor: '#F5FCFF',
   },
   toolbar: {
@@ -29,6 +31,7 @@ module.exports = StyleSheet.create({
   },
   transparentButtonText: {
     color: '#0485A9',
+    textAlign: 'center',
     fontSize: 16
   },
   primaryButton: {

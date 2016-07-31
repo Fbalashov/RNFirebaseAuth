@@ -15,41 +15,47 @@ export default class Signup extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      //
-      loaded: true,
+      // used to display a progress indicator if waiting for a network response.
+      loading: false,
+      // entered credentials
       email: '',
       password: ''
     }
   }
 
+  // A method to passs the username and password to firebase and make a new user account
   signup() {
     this.setState({
-      loaded: false
+      // When waiting for the firebase server show the loading indicator.
+      loading: true
     });
 
+    // Make a call to firebase to create a new user.
     this.props.firebaseApp.auth().createUserWithEmailAndPassword(
       this.state.email,
       this.state.password).then(() => {
+        // then and catch are methods that we call on the Promise returned from
+        // createUserWithEmailAndPassword
         alert('Your account was created!');
         this.setState({
+          // Clear out the fields when the user logs in and hide the progress indicator.
           email: '',
           password: '',
-          loaded: true
-        });
-        this.props.navigator.push({
-          component: Account
+          loading: false
         });
     }).catch((error) => {
-      // handle the error
+      // Leave the fields filled when an error occurs and hide the progress indicator.
       this.setState({
-        loaded: true
+        loading: false
       });
       alert("Account creation failed: " + error.message );
     });
   }
 
   render() {
-    const content = this.state.loaded ?
+    // The content of the screen should be inputs for a username, password and submit button.
+    // If we are loading then we display an ActivityIndicator.
+    const content = this.state.loading ? <ActivityIndicator size="large"/> :
       <View>
         <TextInput
           style={styles.textInput}
@@ -65,9 +71,9 @@ export default class Signup extends Component {
         <TouchableHighlight onPress={this.signup.bind(this)} style={styles.primaryButton}>
           <Text style={styles.primaryButtonText}>Signup</Text>
         </TouchableHighlight>
-      </View>
-      : <ActivityIndicator />;
+      </View>;
 
+    // A simple UI with a toolbar, and content below it.
   	return (
   		<View style={styles.container}>
   			<ToolbarAndroid
