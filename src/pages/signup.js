@@ -44,6 +44,9 @@ export default class Signup extends Component {
           password: '',
           loading: false
         });
+        this.props.navigator.push({
+          component: Login
+        });
     }).catch((error) => {
       // Leave the fields filled when an error occurs and hide the progress indicator.
       this.setState({
