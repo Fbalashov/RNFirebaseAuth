@@ -10,6 +10,7 @@ import {
 } from 'react-native';
 import React, {Component} from 'react';
 import Signup from './Signup';
+import Account from './Account';
 import styles from '../styles/baseStyles.js';
 
 export default class Login extends Component {
@@ -72,14 +73,16 @@ export default class Login extends Component {
         this.setState({
 	        loading: false
 	      });
-        alert("Login successful" + userData);
+        this.props.navigator.push({
+          component: Account
+        });
       }
     ).catch((error) =>
     	{
 	      this.setState({
 	        loading: false
 	      });
-        alert('Login Failed. Please try again');
+        alert('Login Failed. Please try again' + error.message);
     });
   }
 
