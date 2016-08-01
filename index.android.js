@@ -12,7 +12,7 @@ import {
   Text,
   View
 } from 'react-native';
-import Signup from './src/pages/Signup';
+import Login from './src/pages/Login';
 import * as firebase from 'firebase';
 
 const firebaseConfig = {
@@ -30,7 +30,7 @@ class FirebaseAuth extends Component {
       // For now our navigator will always take us to the signup page.
       // We will use a transition where the new page will slide in from the right.
       <Navigator
-        initialRoute={{component: Signup}}
+        initialRoute={{component: Login}}
         configureScene={() => {
           return Navigator.SceneConfigs.FloatFromRight;
         }}

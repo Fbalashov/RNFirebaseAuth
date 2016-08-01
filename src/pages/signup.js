@@ -9,6 +9,7 @@ import {
   ActivityIndicator
 } from 'react-native';
 import styles from '../styles/baseStyles.js';
+import Login from './Login';
 import React, {Component} from 'react';
 
 export default class Signup extends Component {
@@ -71,6 +72,9 @@ export default class Signup extends Component {
         <TouchableHighlight onPress={this.signup.bind(this)} style={styles.primaryButton}>
           <Text style={styles.primaryButtonText}>Signup</Text>
         </TouchableHighlight>
+        <TouchableHighlight onPress={this.goToLogin.bind(this)} style={styles.transparentButton}>
+          <Text style={styles.transparentButtonText}>Go to Login</Text>
+        </TouchableHighlight>
       </View>;
 
     // A simple UI with a toolbar, and content below it.
@@ -84,6 +88,12 @@ export default class Signup extends Component {
         </View>
       </View>
 		)
+  }
+  // Go to the login page
+  goToLogin(){
+    this.props.navigator.push({
+      component: Login
+    });
   }
 }
 
