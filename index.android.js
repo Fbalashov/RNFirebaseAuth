@@ -20,10 +20,10 @@ import styles from './src/styles/baseStyles.js';
 import * as firebase from 'firebase';
 
 const firebaseConfig = {
-  apiKey: "AIzaSyCq3lqjErh8OnsytkGndK6nmeXiVqYMcKo",
-  authDomain: "react-native-auth-9fd6d.firebaseapp.com",
-  databaseURL: "https://react-native-auth-9fd6d.firebaseio.com",
-  storageBucket: "react-native-auth-9fd6d.appspot.com",
+  apiKey: "AIzaSyBGu_h0hiNve4xB-_xfKQSh4depfFUmodg",
+  authDomain: "fir-userauth-90a85.firebaseapp.com",
+  databaseURL: "https://fir-userauth-90a85.firebaseio.com",
+  storageBucket: "fir-userauth-90a85.appspot.com",
 };
 // Initialize the firebase app here and pass it to other components as needed. Only initialize on startup.
 const firebaseApp = firebase.initializeApp(firebaseConfig);
